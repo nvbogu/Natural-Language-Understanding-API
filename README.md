@@ -3,11 +3,12 @@ Personal voice assistant for web conferencing systems using RASA-NLU
 
 git clone https://github.com/Ameckto/voice_assistant_ai_for_conference_systems.git
 
-Installation 
+### Installation 
 
 use python 3.6
-
+```bash
 pip install rasa
+```
 
 pip install spacy
 
