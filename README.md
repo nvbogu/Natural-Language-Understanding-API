@@ -86,6 +86,57 @@ curl localhost:5000/model/parse -d "{\"text\":\"hey big blue button\"}"
 
 //it should return
 
-{"intent":{"name":"wake_up","confidence":0.531367585},"entities":[],"intent_ranking":[{"name":"wake_up","confidence":0.531367585},{"name":"wake_up+give_presentor","confidence":0.1351553757},{"name":"wake_up+mute","confidence":0.0850125531},{"name":"wake_up+share_first_screen","confidence":0.0763415973},{"name":"out_of_scope","confidence":0.0672892096},{"name":"wake_up+raise_hand","confidence":0.0590120959},{"name":"mute","confidence":0.012295431},{"name":"share_first_screen","confidence":0.01197029},{"name":"raise_hand","confidence":0.0113284591},{"name":"give_presentor","confidence":0.0102274033}],"text":"hey big blue button"}
+{
+   "intent":{
+      "name":"wake_up",
+      "confidence":0.531367585
+   },
+   "entities":[
+      
+   ],
+   "intent_ranking":[
+      {
+         "name":"wake_up",
+         "confidence":0.531367585
+      },
+      {
+         "name":"wake_up+give_presentor",
+         "confidence":0.1351553757
+      },
+      {
+         "name":"wake_up+mute",
+         "confidence":0.0850125531
+      },
+      {
+         "name":"wake_up+share_first_screen",
+         "confidence":0.0763415973
+      },
+      {
+         "name":"out_of_scope",
+         "confidence":0.0672892096
+      },
+      {
+         "name":"wake_up+raise_hand",
+         "confidence":0.0590120959
+      },
+      {
+         "name":"mute",
+         "confidence":0.012295431
+      },
+      {
+         "name":"share_first_screen",
+         "confidence":0.01197029
+      },
+      {
+         "name":"raise_hand",
+         "confidence":0.0113284591
+      },
+      {
+         "name":"give_presentor",
+         "confidence":0.0102274033
+      }
+   ],
+   "text":"hey big blue button"
+}
 
 
