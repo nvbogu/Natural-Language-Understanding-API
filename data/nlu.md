@@ -25,6 +25,7 @@
 - mute [Myself]{"entity": "PERSON"}
 - mute [Me]{"entity": "PERSON"}
 - mute [Freddy]{"entity": "PERSON"}
+- mute [Paul]{"entity": "PERSON"}
 
 ## intent: give_presentor
 - give [Steffen]{"entity": "PERSON"} presentor
@@ -40,8 +41,11 @@
 - give [Myself]{"entity": "PERSON"} the presentor
 - take [Me]{"entity": "PERSON"} presentor
 - get [Freddy]{"entity": "PERSON"} presentor
+- give [Me]{"entity": "PERSON"} presenter
+- give [Freddy]{"entity": "PERSON"} presenter
+- give [Paul]{"entity": "PERSON"} presenter
 
-## intent: share_first_screen
+## intent: share_screen
 - share my screen
 - share my first screen
 - share screen
@@ -71,16 +75,20 @@
 - hey big blue button give [Steffen]{"entity": "PERSON"} presentor
 - hello bbb make [Klaus]{"entity": "PERSON"} to the presentor
 - hey my friend BigBLueButton give [Chris]{"entity": "PERSON"} presentor
-- hey bbb take [Sonya]{"entity": "PERSON"} as presentator
+- hey bbb take [Sonya]{"entity": "PERSON"} as presentater
 - bbb get [Malte]{"entity": "PERSON"} presentator
-- big blue button give [Felix]{"entity": "PERSON"} presentor
+- big blue button give [Felix]{"entity": "PERSON"} presenter
 - hi big blue button let [Niklas]{"entity": "PERSON"} present now
 - greetings big blue button get [Thomas]{"entity": "PERSON"} presentor now
-- hello big blue button let [Christian]{"entity": "PERSON"} be the presentor please
+- hello big blue button let [Christian]{"entity": "PERSON"} be the presenter please
 - whats up bbb get [Dominik]{"entity": "PERSON"} presentator
 - whats up big blue button give [Myself]{"entity": "PERSON"} the presentor
+- hey bbb give [Myself]{"entity": "PERSON"} presenter
+- hey bbb give [Me]{"entity": "PERSON"} presenter
+- hey bbb give [Freddy]{"entity": "PERSON"} presenter
+- hey bbb give [Paul]{"entity": "PERSON"} presenter
 
-## intent: wake_up+share_first_screen
+## intent: wake_up+share_screen
 - hey big blue button share my screen
 - hello bbb share my first screen
 - hey my friend BigBLueButton
@@ -91,7 +99,7 @@
 - greetings big blue button let myself share my first screen
 - hello big blue button share my screen now 
 - whats up bbb I want you to share my screen
-- whats up big blue button show my first screen please
+- whats up big blue button show my second screen please
  
 ## intent: wake_up+raise_hand
 - hey big blue button please raise my hand
