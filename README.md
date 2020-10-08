@@ -2,7 +2,7 @@
 Personal voice assistant for web conferencing systems using RASA-NLU
 
 
-
+https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/intent_entity_confidence_test.ipynb
 ### Installation 
 
 Use a virtual environment with python 3.6 on Ubuntu 16.04
