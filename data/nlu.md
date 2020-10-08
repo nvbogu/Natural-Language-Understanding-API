@@ -1,4 +1,4 @@
-## intent:wake_up
+## intent: wake_up
 - hey big blue button
 - hello bbb
 - hey my friend BigBLueButton
@@ -11,7 +11,34 @@
 - whats up bbb
 - whats up big blue button
 
-## intent:mute
+## intent: out_of_scope
+- big blue button is a meeting conference tool
+- bbb is a nice programm
+- I would consider wake up at 10 pm
+- I am not finished yet
+- Can you here me?
+- turn on your valume please
+- uhhhh
+- ahhhh
+- can you here me?
+- good bye
+- hi
+- hello everyone
+
+## intent: summarize
+- please summarize the meeting
+- give me the Summary of the meeting
+- please compile the summary for me 
+- whats the summary of the meeting?
+- can you summarize the meeting for me
+- do the summarization for me please
+- make the Summarization now
+- let me show the summary 
+- can you do the Summarization pls
+- is there a way to give me a summary?
+- I want the Summarization now
+
+## intent: mute
 - mute [Steffen]{"entity": "PERSON"}
 - mute [Klaus]{"entity": "PERSON"}
 - mute [Chris]{"entity": "PERSON"}
@@ -27,7 +54,7 @@
 - mute [Freddy]{"entity": "PERSON"}
 - mute [Paul]{"entity": "PERSON"}
 
-## intent: give_presentor
+## intent: give_presenter
 - give [Steffen]{"entity": "PERSON"} presentor
 - make [Klaus]{"entity": "PERSON"} to the presentor
 - give [Chris]{"entity": "PERSON"} presentor
@@ -71,7 +98,7 @@
 - show my hands
 - pls raise my hands
 
-## intent: wake_up+give_presentor
+## intent: wake_up+give_presenter
 - hey big blue button give [Steffen]{"entity": "PERSON"} presentor
 - hello bbb make [Klaus]{"entity": "PERSON"} to the presentor
 - hey my friend BigBLueButton give [Chris]{"entity": "PERSON"} presentor
@@ -114,7 +141,6 @@
 - whats up bbb show my hands
 - whats up big blue button pls raise my hands
 
-
 ## intent: wake_up+mute
 - hey big blue button mute [Steffen]{"entity": "PERSON"}
 - hello bbb mute [Klaus]{"entity": "PERSON"}
@@ -128,17 +154,15 @@
 - hey Big blue button mute [Me]{"entity": "PERSON"}
 - best friend bigbluebutton mute [Myself]{"entity": "PERSON"}
 
-
-## intent: out_of_scope
-- big blue button is a meeting conference tool
-- bbb is a nice programm
-- I would consider wake up at 10 pm
-- I am not finished yet
-- Can you here me?
-- turn on your valume please
-- uhhhh
-- ahhhh
-- can you here me?
-- good bye
-- hi
-- hello everyone
+## intent: wake_up+summarize
+- hey big blue button please summarize the meeting
+- hello bbb mute give me the Summary of the meeting
+- hey my friend please compile the summary for me 
+- hey bbb whats the summary of the meeting?
+- bbb can you summarize the meeting for me
+- big blue button do the summarization for me please
+- hi big blue button make the Summarization now
+- greetings big blue button let me show the summary 
+- hello big blue can you do the Summarization pls
+- hey Big blue button is there a way to give me a summary?
+- best friend bigbluebutton I want the Summarization now
