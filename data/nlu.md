@@ -166,3 +166,19 @@
 - hello big blue can you do the Summarization pls
 - hey Big blue button is there a way to give me a summary?
 - best friend bigbluebutton I want the Summarization now
+
+
+## intent: wake_up+out_of_scope
+- hey big blue button is a meeting conference tool
+- hello bbb is a nice programm
+- hey my friend BigBLueButton I would consider wake up at 10 pm
+- hey bbb I am not finished yet
+- bbb Can you here me?
+- big blue button turn on your valume please
+- hi big blue button uhhhh
+- greetings big blue button ahhhh
+- hello big blue button can you here me?
+- whats up bbb good bye
+- whats up big blue button hello everyone
+
+
