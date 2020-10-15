@@ -15,7 +15,10 @@ The provided model is capable of identifying the following intents:
 | raise_hand     | raise my hand          |                     |
 | out_of_scope   | I don't like it here   |                     |
 
-It is also capable of identifying multiple intents if one of them is a wake_up intent like wake_up+mute, wake_up+share_screen etc.
+It is also capable of identifying multiple intents if one of them is a wake_up intent like wake_up+mute, wake_up+share_screen etc..
+
+This project is part of [this project](https://github.com/Ameckto/bigbluebutton) where the bigbluebutton (open source web conferencing) application is altered in order to bring a personal voice assistant to live and useable.
+
 
 ## Table of contents
 
