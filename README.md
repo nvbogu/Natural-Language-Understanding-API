@@ -1,9 +1,63 @@
-# voice_assistant_ai_for_conference_systems
-Personal voice assistant for web conferencing systems using RASA-NLU
+## About The Project
+This project is about building an API for a personal voice assistant, e.g. a bot in a web conferencing systems which receives a text from the client and responds with a JSON containing pre-defined intents, entities and their confidences. 
 
+In other words if you want an API which can make sense out of the string "Hey my friend <bot_name> mute Christian" and identifies that Christian should be muted here then you are at the right adress here. 
 
 https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/intent_entity_confidence_test.ipynb
-### Installation 
+
+## Table of Contents
+
+* [About the Project](#about-the-project)
+* [Installation](#installation)
+    *[Prerequisites](#prerequisites)
+    *[RASA-NLU](#rasa-nlu)
+    *[NGINX](#nginx)
+    *[HTTPS-Certificate](#https-certificate)
+* [How to use the API](#usage)
+* [How to train the model](#train)
+* [How to test the model](#test)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+
+
+## Installation
+
+## Prerequisites
+
+I redommend:
+4 CPU-Corese which do have AVX instructions for tensorflow, 
+16 GB RAM and 20 GB of SSD for a production server. 
+
+Ubuntu 18.04 and Python 3.6.9 should be installed (Python 3.6.9 is installed on Ubuntu 18.04 by default).
+
+You can check you python version by running:
+
+```sh
+python3 --version
+```
+
+You should also have pip3 9.0.1 installed.
+You can check your pip3 version by running: 
+```sh
+pip3 --version
+```
+
+You can update you pip3 version by running:
+```sh
+sudo apt update
+sudo apt install python3-pip
+```
+
+
+
+
+## RASA-NLU
+
+## NGINX
+## HTTPS-Certificate
+
 
 Use a virtual environment with python 3.6 on Ubuntu 16.04
 
