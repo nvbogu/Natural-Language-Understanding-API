@@ -62,9 +62,9 @@ your own domain name and be able to point it to the servers public ip address. I
 
 ## RASA
 
-In this section we will install the RASA package and clone the Git repository. 
+In this section you will install the RASA package and clone the Git repository. 
 
-To install the RASA package we first create a project folder and a virtual environment to avoid conflicts.  
+To install the RASA package first create a project folder and a virtual environment to avoid conflicts.  
 
 To create a project folder run:
 ```sh
@@ -76,7 +76,7 @@ To move into the folder run:
 cd <your_project_name>
 ```
 
-To be able to create a virtual environment in python3 we need to install the fallowing package: 
+To be able to create a virtual environment in python3 you need to install the fallowing package: 
 ```sh
 sudo apt install python3-venv
 ```
@@ -92,7 +92,7 @@ source ./<your_virtual_environment_name>/bin/activate
 ```
 Keep in mind that you have to be in <your_project_name> folder to activate your venv. 
 
-Now we will install the RASA package by running: 
+Now install the RASA package by running: 
 ```sh
 pip install rasa
 ```
@@ -128,17 +128,17 @@ By now, you have installed RASA successfully!
 
 ## NGINX
 
-In this section we will install a NGINX web server which will make it possible to access your server with a public ip adress. 
+In this section you will install a NGINX web server which will make it possible to access your server with a public ip adress. 
 
-First we install the NGINX package by running: 
+First install the NGINX package by running: 
 ```sh
 apt install nginx
 ```
-Now we will unlink the default landing page of the NGNIX server by running: 
+Now unlink the default landing page of the NGNIX server by running: 
 ```sh
 unlink /etc/nginx/sites-enabled/default
 ```
-To link it to our local RASA server we first navigate to the site-variables folder by running: 
+To link it to our local RASA server first navigate to the site-variables folder by running: 
 ```sh
 cd /etc/nginx/sites-available
 ```
