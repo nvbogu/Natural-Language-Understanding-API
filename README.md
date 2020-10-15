@@ -3,6 +3,19 @@ This project is about building an API for a personal voice assistant, e.g. a bot
 
 In other words if you want an API which can make sense out of the string *"Hey my friend <bot_name> mute Christian"* and identifies that Christian should be muted here then you are at the right address. 
 
+The provided model is capable of identifying the following intents:
+
+| Intent         | Example                | Entities_identified |
+|----------------|------------------------|---------------------|
+| wake_up        | hey big blue button    |                     |
+| mute           | mute Hoa and Niklas    | Hoa, Niklas         |
+| summarize      | summarize the meeting  |                     |
+| give_presenter | give Mike presenter    | Mike                |
+| share_screen   | share my screen please |                     |
+| raise_hand     | raise my hand          |                     |
+| out_of_scope   | I don't like it here   |                     |
+
+It is also capable of identifying multiple intents if one of them is a wake_up intent like wake_up+mute, wake_up+share_screen etc.
 
 ## Table of contents
 
