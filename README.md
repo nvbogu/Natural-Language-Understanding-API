@@ -297,7 +297,7 @@ Althow training the model is pretty straight forward please visit the [official 
 
 
 
-You can make your API Server to use your model by altering the rasa run command:   
+You can make your API Server to use your own model by altering the rasa run command:   
 
 ```sh
 rasa run --enable-api -m models/<your_model_name> -p 5000
@@ -322,7 +322,7 @@ voice_assistant_ai_for_conference_systems/tests/intent_entity_confidence_test.ip
 
 The test file sends pre-defined use cases to the RASA server and evalutes the reponses. It also prints charts to find a good min_confidence value which can filter out wrong results (hopefully). 
 
-You can simply add more or other use cases by altering the according dictionaries. 
+You can simply add more or other use cases by altering the according dictionaries and re-run the script. 
 
 
 ## License
