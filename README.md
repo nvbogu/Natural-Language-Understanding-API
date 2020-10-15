@@ -148,8 +148,9 @@ Create a new file called reverse-proxy.conf by running:
 nano reverse-proxy.conf
 ```
 
-Now copy paste the fallowing code (called server block) and change the line <server_name example.de www<i></i>.example.de;> accordingly to your domain adress: 
-Hint: After pasting save the file by pressing Ctrl + O and exit it after by pressing Ctrl + X
+Now copy paste the fallowing code (called server block) and change the line <server_name example.de www<i></i>.example.de;> accordingly to your domain address: 
+
+*Hint*: After pasting save the file by pressing Ctrl + O and exit it after by pressing Ctrl + X
 
 ```sh
 server {
@@ -177,12 +178,13 @@ You can check the syntax of your reverse-proxy.conf file by running:
 ```sh
 nginx -t
 ```
-Which should be successfull. If so you have installed your NGINX-Webserver successfully. 
+Which should be successfull. If so you have installed your NGINX web server successfully. 
 
 ## HTTPS-Certificate
-I this section we will make https for your domain name and alter automatically your NGINX configuration. 
+I this section you will get a certificate from [Let's Encript](https://letsencrypt.org/) which is for free and makes your server accessible over the https protocol.
+You also alter your NGINX configuration (automatically). 
 
-First we will use the classic certbot package. You can install it by running:
+First you will use the classic certbot package. You can install it by running:
 
 ```sh
 sudo snap install --classic certbot
@@ -192,8 +194,8 @@ To ensure that the certbot is working properly run:
 ```sh
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
-Now we will use the certbot to deploy the certificate (which uses the "Let's Encrypt" service) for your name server and enable https.
-You will need to fallow a dialogue. The certbot also change your reverse-proxy.conf accordingly. 
+Now you will use the certbot to deploy the certificate for your name server and enable https.
+You will need to fallow a dialogue. The certbot also changes your reverse-proxy.conf file accordingly. 
 ```sh
 sudo certbot --nginx
 ```
@@ -204,7 +206,7 @@ To get the certbot automatically renew your certificates before they expire run:
 sudo certbot renew --dry-run
 ```
 
-Now you should have enabled accessing your name server over https!
+Now your NGINX web server should be automatically accessible over https.  
 
 ## How to start the API
 
@@ -226,11 +228,11 @@ Now navigate to your repository folder by running:
 cd voice_assistant_ai_for_conference_systems
 ```
 
-Start the rasa server with the bigbluebutton (which is a open source web conferencing software) model on port 5000
+Start the RASA server with the bigbluebutton (which is a open source web conferencing software) model on port 5000
 ```sh
 rasa run --enable-api -m models/bigbluebutton.tar.gz -p 5000
 ```
-Hint: You can stop the server by pressing Ctrl + c
+*Hint*: You can stop the server by pressing Ctrl + c
 
 Your NGNIX Server should run be default. If not you can get the current status by running: 
 ```sh
@@ -246,9 +248,9 @@ Start the server by running:
 ```sh
 sudo systemctl start nginx
 ```
-Hint: You need to open a new shell if you started your RASA-Server within the current shell to be able to do something different than watching the RASA-Server running on http://localhost:5000. 
+*Hint*: You need to open a new shell if you started your RASA-Server within the current shell to be able to do something different than watching the RASA-Server running on http:<i></i>//localhost:5000. 
 
-Now you can navigate to your example.com domain and enjoy your rasa-server running with the https protocol ready for your requests.
+Now you can navigate to your <example.com> domain and enjoy your rasa-server running with the https protocol ready for your requests.
 
 You can also test it on your ubuntu machine by curling it by running: 
 
@@ -256,7 +258,7 @@ You can also test it on your ubuntu machine by curling it by running:
 curl localhost:5000/model/parse -d "{\"text\":\"hey big blue button mute Steffen please\"}"
 ```
 
-Which should return 
+Which should return:
 
 {"intent":{"name":"wake_up+mute","confidence":0.3771627578},"entities":[{"entity":"PERSON","start":25,"end":32,"confidence_entity":0.8901095716,"value":"Steffen","extractor":"CRFEntityExtractor"},{"entity":"PERSON","value":"Steffen","start":25,"confidence":null,"end":32,"extractor":"SpacyEntityExtractor"}],"intent_ranking":[{"name":"wake_up+mute","confidence":0.3771627578},{"name":"wake_up+give_presenter","confidence":0.17544354},{"name":"wake_up","confidence":0.0876565409},{"name":"wake_up+out_of_scope","confidence":0.0771458429},{"name":"out_of_scope","confidence":0.074283539},{"name":"wake_up+summarize","confidence":0.0429107613},{"name":"wake_up+raise_hand","confidence":0.0404340016},{"name":"wake_up+share_screen","confidence":0.0355202072},{"name":"mute","confidence":0.0290603673},{"name":"give_presenter","confidence":0.0201405552}],"text":"hey big blue button mute Steffen please"}
 
@@ -284,25 +286,27 @@ rasa run --enable-api -m models/<your_model_name> -p 5000
 
 It is really that simple!
 
-
+*Hint*: You can access the models pipeline by opening the config.yml file. I have reduced the dimensions of the SpacyEntityExtractor to ["PERSON"] which let the extractor only be able to extract persons. Delete this line if you also want to identify other entities e.g. organisations. 
+    
 
 ## How to test the model
 
-In this section I will give you an example how you can test your model in python jupyter notebook. 
-I used a local RASA server and Windows for this purpose. You can also use another operating system and your public accessible RASA-Server as well but you need to change the server address accordingly. 
+In this section I will give you an example how you can test your model in Python Jupyter Notebook. 
+I used a local RASA server and Windows for this purpose. You can also use another operating system and your public accessible RASA server as well but you need to change the server address accordingly in the intent_entity_confidence_test.ipynb file. 
 
 The testfile is located at:
 
 ```sh
 voice_assistant_ai_for_conference_systems/tests/intent_entity_confidence_test.ipynb
 ```
-Hint: If GitHub says: "Sorry" you can view the file here: https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/tests/intent_entity_confidence_test.ipynb
+*Hint*: If GitHub says: "Sorry" you can view the file here: https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/tests/intent_entity_confidence_test.ipynb
 
-The test file sends pre-defined use-cases to the RASA-Server and evalutes the reponses. It also prints charts to find a good min_confidence value which can filter out wrong results (hopefully). 
+The test file sends pre-defined use cases to the RASA server and evalutes the reponses. It also prints charts to find a good min_confidence value which can filter out wrong results (hopefully). 
 
+You can simply add more or other use cases by altering the according dictionaries. 
 
 
 ## License
 
-Feel free to use my code. 
+This project is open source for everyone. 
 
