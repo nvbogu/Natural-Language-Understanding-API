@@ -150,7 +150,7 @@ nano reverse-proxy.conf
 
 Now copy paste the fallowing code (called server block) and change the line <server_name example.de www<i></i>.example.de;> accordingly to your domain address: 
 
-*Hint*: After pasting save the file by pressing Ctrl + O and exit it after by pressing Ctrl + X
+`Hint`: After pasting save the file by pressing Ctrl + O and exit it after by pressing Ctrl + X
 
 ```sh
 server {
@@ -232,7 +232,7 @@ Start the RASA server with the bigbluebutton (which is a open source web confere
 ```sh
 rasa run --enable-api -m models/bigbluebutton.tar.gz -p 5000
 ```
-*Hint*: You can stop the server by pressing Ctrl + c
+`Hint`: You can stop the server by pressing Ctrl + c
 
 Your NGNIX Server should run be default. If not you can get the current status by running: 
 ```sh
@@ -248,7 +248,7 @@ Start the server by running:
 ```sh
 sudo systemctl start nginx
 ```
-*Hint*: You need to open a new shell if you started your RASA-Server within the current shell to be able to do something different than watching the RASA-Server running on http:<i></i>//localhost:5000. 
+`Hint`: You need to open a new shell if you started your RASA-Server within the current shell to be able to do something different than watching the RASA-Server running on http:<i></i>//localhost:5000. 
 
 Now you can navigate to your <example.com> domain and enjoy your rasa-server running with the https protocol ready for your requests.
 
@@ -286,7 +286,7 @@ rasa run --enable-api -m models/<your_model_name> -p 5000
 
 It is really that simple!
 
-*Hint*: You can access the models pipeline by opening the config.yml file. I have reduced the dimensions of the SpacyEntityExtractor to ["PERSON"] which let the extractor only be able to extract persons. Delete this line if you also want to identify other entities e.g. organisations. 
+`Hint`: You can access the models pipeline by opening the config.yml file. I have reduced the dimensions of the SpacyEntityExtractor to ["PERSON"] which let the extractor only be able to extract persons. Delete this line if you also want to identify other entities e.g. organisations. 
     
 
 ## How to test the model
@@ -299,7 +299,7 @@ The testfile is located at:
 ```sh
 voice_assistant_ai_for_conference_systems/tests/intent_entity_confidence_test.ipynb
 ```
-*Hint*: If GitHub says: "Sorry" you can view the file here: https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/tests/intent_entity_confidence_test.ipynb
+`Hint`: If GitHub says: "Sorry" you can view the file here: https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/tests/intent_entity_confidence_test.ipynb
 
 The test file sends pre-defined use cases to the RASA server and evalutes the reponses. It also prints charts to find a good min_confidence value which can filter out wrong results (hopefully). 
 
