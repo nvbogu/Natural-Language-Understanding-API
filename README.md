@@ -9,10 +9,10 @@ https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_sy
 
 * [About the Project](#about-the-project)
 * [Installation](#installation)
-    *[Prerequisites](#prerequisites)
-    *[RASA-NLU](#rasa-nlu)
-    *[NGINX](#nginx)
-    *[HTTPS-Certificate](#https-certificate)
+  *[Prerequisites](#prerequisites)
+  *[RASA-NLU](#rasa-nlu)
+  *[NGINX](#nginx)
+  *[HTTPS-Certificate](#https-certificate)
 * [How to use the API](#usage)
 * [How to train the model](#train)
 * [How to test the model](#test)
@@ -27,6 +27,7 @@ https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_sy
 ## Prerequisites
 
 I redommend:
+
 4 CPU-Corese which do have AVX instructions for tensorflow, 
 16 GB RAM and 20 GB of SSD for a production server. 
 
@@ -44,16 +45,59 @@ You can check your pip3 version by running:
 pip3 --version
 ```
 
-You can update you pip3 version by running:
+You can install pip3 by running:
 ```sh
 sudo apt update
 sudo apt install python3-pip
 ```
 
+You can update pip3 by running:
+```sh
+pip install -U pip
+```
 
 
 
 ## RASA-NLU
+
+To install the RASA-NLU package we first create a project folder and a virtual environment to avoid conflicts.  
+
+To create a project folder run:
+```sh
+mkdir <your_project_name>
+```
+
+To move into the folder run: 
+```sh
+cd <your_project_name>
+```
+
+To be able to create a virtual environment in python3 we need to install the fallowing package: 
+```sh
+sudo apt install python3-venv
+```
+
+Now, create a virtual environment (venv) by running: 
+```sh
+python3 -m venv ./<your_virtual_environment_name>
+```
+
+To activate your newly created virtual environment run:
+```sh
+source ./<your_virtual_environment_name>/bin/activate
+```
+Keep in mind that you have to be in <your_project_name> folder to activate your venv. 
+
+Now we will install the RASA package by running: 
+```sh
+pip install rasa
+```
+After running the above command check the version of RASA by running: 
+```sh
+rasa --version
+```
+It should be the version Rasa 1.10.14.
+
 
 ## NGINX
 ## HTTPS-Certificate
