@@ -44,7 +44,7 @@ In this section I will talk about what you should have to be able to follow this
 
 I recommend:
 
-4 CPU-Corese which do have AVX instructions for Tensorflow, 
+4 CPU-Corese which are capable to execute AVX instructions for Tensorflow, 
 16 GB RAM and 20 GB of SSD for a production server. 
 
 Ubuntu 18.04 and Python 3.6.9 should be installed (Python 3.6.9 is installed on Ubuntu 18.04 by default).
