@@ -13,7 +13,7 @@ https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_sy
   * [RASA-NLU](#rasa-nlu)
   * [NGINX](#nginx)
   * [HTTPS-Certificate](#https-certificate)
-* [How to use the API](#usage)
+* [How to start the API](#usage)
 * [How to train the model](#train)
 * [How to test the model](#test)
 * [License](#license)
@@ -205,7 +205,7 @@ sudo certbot renew --dry-run
 
 Now you should have enabled accessing your name server over https!
 
-## How to use the API
+## How to start the API
 
 In this section you will make the server running and waiting for your requests. 
 
