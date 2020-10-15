@@ -10,7 +10,7 @@ In other words if you want an API which can make sense out of the string "Hey my
   * [Prerequisites](#prerequisites)
   * [RASA](#rasa)
   * [NGINX](#nginx)
-  * [HTTPS-Certificate](#https-certificate)
+  * [HTTPS Certificate](#https-certificate)
 * [How to start the API](#how-to-start-the-API)
 * [How to train the model](#How-to-train-the-model)
 * [How to test the model](#How-to-test-the-model)
@@ -180,7 +180,7 @@ nginx -t
 ```
 Which should be successfull. If so you have installed your NGINX web server successfully. 
 
-## HTTPS-Certificate
+## HTTPS Certificate
 I this section you will get a certificate from [Let's Encript](https://letsencrypt.org/) which is for free and makes your server accessible over the https protocol.
 You also alter your NGINX configuration (automatically). 
 
