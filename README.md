@@ -17,7 +17,7 @@ The provided model is capable of identifying the following intents:
 
 It is also capable of identifying multiple intents if one of them is a wake_up intent like wake_up+mute, wake_up+share_screen etc..
 
-This project is part of [this project](https://github.com/Ameckto/bigbluebutton) where the bigbluebutton (open source web conferencing) application is altered in order to bring a personal voice assistant to live and useable.
+Although this is a standalone project it is used by [this project](https://github.com/Ameckto/bigbluebutton) where the [bigbluebutton](https://github.com/bigbluebutton) (open source web conferencing) application is altered in order to bring a personal voice assistant to live and useable.
 
 
 ## Table of contents
@@ -35,8 +35,8 @@ This project is part of [this project](https://github.com/Ameckto/bigbluebutton)
 
 ## Installation
 
-In this section you will install and configure everything what is necessary to run a web server (with an https protocol) which acts like a proxy server and points to a local RASA-Server. 
-Rasa Open Source is a machine learning framework to automate text- and voice-based assistants.
+In this section you will install and configure everything what is necessary to run a web server (with an https protocol) which acts like a proxy server and points to a local RASA server. 
+[Rasa Open Source](https://rasa.com/) is a machine learning framework to automate text- and voice-based assistants.
 
 ## Prerequisites
 
