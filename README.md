@@ -148,7 +148,7 @@ Create a new file called reverse-proxy.conf by running:
 nano reverse-proxy.conf
 ```
 
-Now copy paste the fallowing code (called server block) and change the line <server_name example.de www&#58.example.de;> accordingly to your domain adress: 
+Now copy paste the fallowing code (called server block) and change the line <server_name example.de www<i></i>.example.de;> accordingly to your domain adress: 
 Hint: After pasting save the file by pressing Ctrl + O and exit it after by pressing Ctrl + X
 
 ```sh
