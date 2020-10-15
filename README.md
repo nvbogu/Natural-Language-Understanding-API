@@ -1,5 +1,5 @@
 ## About this project
-This project is about building an API for a personal voice assistant, e.g. a bot in web conferencing systems which receives a text from the client and responds with a JSON file containing pre-defined intents, entities and their confidences. 
+This project is about building an API for a personal voice assistant, e.g. a bot in web conferencing systems which receives a text from the client and responds with a JSON text containing pre-defined intents, entities and their confidences. 
 
 In other words if you want an API which can make sense out of the string *"Hey my friend <bot_name> mute Christian"* and identifies that Christian should be muted here then you are at the right address. 
 
