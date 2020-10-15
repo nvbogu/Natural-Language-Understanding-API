@@ -1,14 +1,14 @@
 ## About The Project
 This project is about building an API for a personal voice assistant, e.g. a bot in web conferencing systems which receives a text from the client and responds with a JSON file containing pre-defined intents, entities and their confidences. 
 
-In other words if you want an API which can make sense out of the string "Hey my friend <bot_name> mute Christian" and identifies that Christian should be muted here then you are at the right address here. 
+In other words if you want an API which can make sense out of the string "Hey my friend <bot_name> mute Christian" and identifies that Christian should be muted here then you are at the right address. 
 
 
 ## Table of Contents
 
 * [Installation](#installation)
   * [Prerequisites](#prerequisites)
-  * [RASA-NLU](#rasa-nlu)
+  * [RASA](#rasa)
   * [NGINX](#nginx)
   * [HTTPS-Certificate](#https-certificate)
 * [How to start the API](#how-to-start-the-API)
@@ -20,20 +20,20 @@ In other words if you want an API which can make sense out of the string "Hey my
 ## Installation
 
 In this section you will install and configure everything what is necessary to run a web server (with an https protocol) which acts like a proxy server and points to a local RASA-Server. 
-Rasa Open Source is a machine learning framework to automate text- and voice-based assistants
+Rasa Open Source is a machine learning framework to automate text- and voice-based assistants.
 
 ## Prerequisites
 
 In this section I will talk about what you should have to be able to follow this guide and install your own RASA-API server. 
 
-I redommend:
+I recommend:
 
-4 CPU-Corese which do have AVX instructions for tensorflow, 
+4 CPU-Corese which do have AVX instructions for Tensorflow, 
 16 GB RAM and 20 GB of SSD for a production server. 
 
 Ubuntu 18.04 and Python 3.6.9 should be installed (Python 3.6.9 is installed on Ubuntu 18.04 by default).
 
-You can check you python version by running:
+You can check you Python version by running:
 
 ```sh
 python3 --version
@@ -56,15 +56,15 @@ You can update pip3 by running:
 pip install -U pip
 ```
 
-This guide will assumes that you need to have the server be accesible over https and not only http and therefore you will need 
-your own domain name and be able to point it to the servers public ip adress which you will create here in this guide. 
+This guide assumes that you need to have the server be accesible over https and not only http and therefore you will need 
+your own domain name and be able to point it to the servers public ip address. In this guide you will create the server.
 
 
-## RASA-NLU
+## RASA
 
-In this section we will install the RASA package and clone the git repository. 
+In this section we will install the RASA package and clone the Git repository. 
 
-To install the RASA-NLU package we first create a project folder and a virtual environment to avoid conflicts.  
+To install the RASA package we first create a project folder and a virtual environment to avoid conflicts.  
 
 To create a project folder run:
 ```sh
@@ -102,19 +102,19 @@ rasa --version
 ```
 It should be the version Rasa 1.10.14.
 
-After installing RASA make sure that you are in <your_project_name> folder and clone the git repository by running: 
+After installing RASA make sure that you are in <your_project_name> folder and clone the Git repository by running: 
 ```sh
 git clone https://github.com/Ameckto/voice_assistant_ai_for_conference_systems.git
 ```
 
-The repository you just downloaded makes usage of the spacy package which is a free open-source library for natural language processing in python. 
+The repository you just downloaded makes usage of the Spacy package which is a free open-source library for Natural Language Processing in Python.
 Thus you need to install it by running:
 
 ```sh
 pip install spacy
 ```
 
-The repository also makes usage of the spacy en_core_web_md pretrained statistical model for english. Download it by running:
+The repository also makes usage of the Spacy en_core_web_md pretrained statistical model for English. Download it by running:
 ```sh
 python -m spacy download en_core_web_md
 ```
@@ -128,7 +128,7 @@ By now, you have installed RASA successfully!
 
 ## NGINX
 
-In this section we will install a NGINX-Webserver which will make it possible to access your server with a public ip adress. 
+In this section we will install a NGINX web server which will make it possible to access your server with a public ip adress. 
 
 First we install the NGINX package by running: 
 ```sh
@@ -148,7 +148,7 @@ Create a new file called reverse-proxy.conf by running:
 nano reverse-proxy.conf
 ```
 
-Now copy paste the fallowing code (called Server-Block) and change the line <server_name example.de www.example.de;> accordingly to your domain adress: 
+Now copy paste the fallowing code (called server block) and change the line <server_name example.de www&#58.example.de;> accordingly to your domain adress: 
 Hint: After pasting save the file by pressing Ctrl + O and exit it after by pressing Ctrl + X
 
 ```sh
