@@ -1,13 +1,11 @@
 ## About The Project
-This project is about building an API for a personal voice assistant, e.g. a bot in a web conferencing systems which receives a text from the client and responds with a JSON containing pre-defined intents, entities and their confidences. 
+This project is about building an API for a personal voice assistant, e.g. a bot in web conferencing systems which receives a text from the client and responds with a JSON file containing pre-defined intents, entities and their confidences. 
 
-In other words if you want an API which can make sense out of the string "Hey my friend <bot_name> mute Christian" and identifies that Christian should be muted here then you are at the right adress here. 
+In other words if you want an API which can make sense out of the string "Hey my friend <bot_name> mute Christian" and identifies that Christian should be muted here then you are at the right address here. 
 
-https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/intent_entity_confidence_test.ipynb
 
 ## Table of Contents
 
-* [About the Project](#about-the-project)
 * [Installation](#installation)
   * [Prerequisites](#prerequisites)
   * [RASA-NLU](#rasa-nlu)
@@ -20,6 +18,9 @@ https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_sy
 
 
 ## Installation
+
+In this section you will install and configure everything what is necessary to run a web server (with an https protocol) which acts like a proxy server and points to a local RASA-Server. 
+Rasa Open Source is a machine learning framework to automate text- and voice-based assistants
 
 ## Prerequisites
 
@@ -297,7 +298,7 @@ voice_assistant_ai_for_conference_systems/tests/intent_entity_confidence_test.ip
 ```
 Hint: If GitHub says: "Sorry" you can view the file here: https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/tests/intent_entity_confidence_test.ipynb
 
-The test file sends pre-defined use-cases to the RASA-Server and evalute the reponses. It also prints charts to find a good min_confidence value which can filter out wrong results (hopefully). 
+The test file sends pre-defined use-cases to the RASA-Server and evalutes the reponses. It also prints charts to find a good min_confidence value which can filter out wrong results (hopefully). 
 
 
 
