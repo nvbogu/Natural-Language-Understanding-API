@@ -16,10 +16,7 @@ https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_sy
 * [How to use the API](#usage)
 * [How to train the model](#train)
 * [How to test the model](#test)
-* [Contributing](#contributing)
 * [License](#license)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
 
 
 ## Installation
@@ -182,85 +179,129 @@ nginx -t
 Which should be successfull. If so you have installed your NGINX-Webserver successfully. 
 
 ## HTTPS-Certificate
+I this section we will make https for your domain name and alter automatically your NGINX configuration. 
 
+First we will use the classic certbot package. You can install it by running:
 
-
-//install the certbot
+```sh
 sudo snap install --classic certbot
+```
 
-
-//ensure that the certbot is working properly
+To ensure that the certbot is working properly run: 
+```sh
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
-
-//get certbot configuring your reverse-proxy.conf file (server block file) automatically
+```
+Now we will use the certbot to deploy the certificate (which uses the "Let's Encrypt" service) for your name server and enable https.
+You will need to fallow a dialogue. The certbot also change your reverse-proxy.conf accordingly. 
+```sh
 sudo certbot --nginx
+```
 
-//get certbot automatically renew your certificates automatically before they expire
+
+To get the certbot automatically renew your certificates before they expire run:
+```sh
 sudo certbot renew --dry-run
+```
 
+Now you should have enabled accessing your name server over https!
 
-//navigate to your voice_assistant_ai_for_conference_systems folder
-//start the rasa server with the bigbluebutton model on port 5000
+## How to use the API
+
+In this section you will make the server running and waiting for your requests. 
+
+First navigate to your project folder:
+
+```sh
+cd <your_project_name>
+```
+
+Activate your venv by running: 
+```sh
+source ./<your_virtual_environment_name>/bin/activate
+```
+
+Now navigate to your repository folder by running:
+```sh
+cd voice_assistant_ai_for_conference_systems
+```
+
+Start the rasa server with the bigbluebutton (which is a open source web conferencing software) model on port 5000
+```sh
 rasa run --enable-api -m models/bigbluebutton.tar.gz -p 5000
+```
+Hint: You can stop the server by pressing Ctrl + c
 
-//navigate to your example.com domain and enjoy your rasa-server running with the https protocol ready for your post requests
-//you can test your sever by curling it on your Ubuntu-Server 
+Your NGNIX Server should run be default. If not you can get the current status by running: 
+```sh
+sudo systemctl status nginx
+```
 
-curl localhost:5000/model/parse -d "{\"text\":\"hey big blue button\"}"
+Stop the server by running: 
+```sh
+sudo systemctl stop nginx
+```
 
-//it should return
+Start the server by running: 
+```sh
+sudo systemctl start nginx
+```
+Hint: You need to open a new shell if you started your RASA-Server within the current shell to be able to do something different than watching the RASA-Server running on http://localhost:5000. 
 
-{
-   "intent":{
-      "name":"wake_up",
-      "confidence":0.531367585
-   },
-   "entities":[
-      
-   ],
-   "intent_ranking":[
-      {
-         "name":"wake_up",
-         "confidence":0.531367585
-      },
-      {
-         "name":"wake_up+give_presentor",
-         "confidence":0.1351553757
-      },
-      {
-         "name":"wake_up+mute",
-         "confidence":0.0850125531
-      },
-      {
-         "name":"wake_up+share_first_screen",
-         "confidence":0.0763415973
-      },
-      {
-         "name":"out_of_scope",
-         "confidence":0.0672892096
-      },
-      {
-         "name":"wake_up+raise_hand",
-         "confidence":0.0590120959
-      },
-      {
-         "name":"mute",
-         "confidence":0.012295431
-      },
-      {
-         "name":"share_first_screen",
-         "confidence":0.01197029
-      },
-      {
-         "name":"raise_hand",
-         "confidence":0.0113284591
-      },
-      {
-         "name":"give_presentor",
-         "confidence":0.0102274033
-      }
-   ],
-   "text":"hey big blue button"
-}
+Now you can navigate to your example.com domain and enjoy your rasa-server running with the https protocol ready for your requests.
 
+You can also test it on your ubuntu machine by curling it by running: 
+
+```sh
+curl localhost:5000/model/parse -d "{\"text\":\"hey big blue button mute Steffen please\"}"
+```
+
+Which should return 
+
+{"intent":{"name":"wake_up+mute","confidence":0.3771627578},"entities":[{"entity":"PERSON","start":25,"end":32,"confidence_entity":0.8901095716,"value":"Steffen","extractor":"CRFEntityExtractor"},{"entity":"PERSON","value":"Steffen","start":25,"confidence":null,"end":32,"extractor":"SpacyEntityExtractor"}],"intent_ranking":[{"name":"wake_up+mute","confidence":0.3771627578},{"name":"wake_up+give_presenter","confidence":0.17544354},{"name":"wake_up","confidence":0.0876565409},{"name":"wake_up+out_of_scope","confidence":0.0771458429},{"name":"out_of_scope","confidence":0.074283539},{"name":"wake_up+summarize","confidence":0.0429107613},{"name":"wake_up+raise_hand","confidence":0.0404340016},{"name":"wake_up+share_screen","confidence":0.0355202072},{"name":"mute","confidence":0.0290603673},{"name":"give_presenter","confidence":0.0201405552}],"text":"hey big blue button mute Steffen please"}
+
+
+## How to train the model
+
+In this section you will learn how quickly you can change the training data and change the entity extractor pipeline and fit the model to your needs.
+
+Activate your virtual environment and move to the repository folder (explained above).
+
+To train a model run: 
+
+```sh
+rasa train nlu
+```
+
+This creates a new model which is stored in the model folder. The data used to train the model is stored in the nlu.md file which is located in the data folder. 
+You can just change the data and re-run the above command to train your model. 
+
+You can make your API Server to use your model by altering the rasa run command:   
+
+```sh
+rasa run --enable-api -m models/<your_model_name> -p 5000
+```
+
+It is really that simple!
+
+
+
+## How to test the model
+
+In this section I will give you an example how you can test your model in python jupyter notebook. 
+I used a local RASA server and Windows for this purpose. You can also use another operating system and your public accessible RASA-Server as well but you need to change the server address accordingly. 
+
+The testfile is located at:
+
+```sh
+voice_assistant_ai_for_conference_systems/tests/intent_entity_confidence_test.ipynb
+```
+Hint: If GitHub says: "Sorry" you can view the file here: https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/tests/intent_entity_confidence_test.ipynb
+
+The test file sends pre-defined use-cases to the RASA-Server and evalute the reponses. It also prints charts to find a good min_confidence value which can filter out wrong results (hopefully). 
+
+
+
+## License
+
+Feel free to use my code. 
 
