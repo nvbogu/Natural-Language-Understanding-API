@@ -9,10 +9,10 @@ https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_sy
 
 * [About the Project](#about-the-project)
 * [Installation](#installation)
-  *[Prerequisites](#prerequisites)
-  *[RASA-NLU](#rasa-nlu)
-  *[NGINX](#nginx)
-  *[HTTPS-Certificate](#https-certificate)
+  * [Prerequisites](#prerequisites)
+  * [RASA-NLU](#rasa-nlu)
+  * [NGINX](#nginx)
+  * [HTTPS-Certificate](#https-certificate)
 * [How to use the API](#usage)
 * [How to train the model](#train)
 * [How to test the model](#test)
@@ -25,6 +25,8 @@ https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_sy
 ## Installation
 
 ## Prerequisites
+
+In this section I will talk about what you should have to be able to follow this guide and install your own RASA-API server. 
 
 I redommend:
 
@@ -56,9 +58,13 @@ You can update pip3 by running:
 pip install -U pip
 ```
 
+This guide will assumes that you need to have the server be accesible over https and not only http and therefore you will need 
+your own domain name and be able to point it to the servers public ip adress which you will create here in this guide. 
 
 
 ## RASA-NLU
+
+In this section we will install the RASA package and clone the git repository. 
 
 To install the RASA-NLU package we first create a project folder and a virtual environment to avoid conflicts.  
 
@@ -98,46 +104,56 @@ rasa --version
 ```
 It should be the version Rasa 1.10.14.
 
+After installing RASA make sure that you are in <your_project_name> folder and clone the git repository by running: 
+```sh
+git clone https://github.com/Ameckto/voice_assistant_ai_for_conference_systems.git
+```
+
+The repository you just downloaded makes usage of the spacy package which is a free open-source library for natural language processing in python. 
+Thus you need to install it by running:
+
+```sh
+pip install spacy
+```
+
+The repository also makes usage of the spacy en_core_web_md pretrained statistical model for english. Download it by running:
+```sh
+python -m spacy download en_core_web_md
+```
+
+You also need to link the model by running: 
+```sh
+python -m spacy link en_core_web_md en
+```
+
+By now, you have installed RASA successfully!  
 
 ## NGINX
-## HTTPS-Certificate
 
+In this section we will install a NGINX-Webserver which will make it possible to access your server with a public ip adress. 
 
-Use a virtual environment with python 3.6 on Ubuntu 16.04
-
-```bash
-//Clone the git repository
-git clone https://github.com/Ameckto/voice_assistant_ai_for_conference_systems.git
-
-//install rasa (it automatically installs all package dependencies)
-pip install rasa
-
-//install language model package
-pip install spacy
-
-//donwload the used model
-python -m spacy download en_core_web_md
-
-//link the used model 
-python -m spacy link en_core_web_md en
-
-//install nginx (webserver)
+First we install the NGINX package by running: 
+```sh
 apt install nginx
-
-//unlink the default virtual host
+```
+Now we will unlink the default landing page of the NGNIX server by running: 
+```sh
 unlink /etc/nginx/sites-enabled/default
-
-//navigate to the site-variables folder where we create a reverse proxy configuration file
+```
+To link it to our local RASA server we first navigate to the site-variables folder by running: 
+```sh
 cd /etc/nginx/sites-available
+```
 
-//create a new file called reverse-proxy.conf
+Create a new file called reverse-proxy.conf by running: 
+```sh
 nano reverse-proxy.conf
+```
 
-//copy paste the fallowing code (called Server-Block)
-//before change the line <server_name example.de www.example.de;> accordingly to your domain
-//errors will be located at: /var/log/nginx
-//after pasting save the file by pressing Ctrl + O and exit it after by pressing Ctrl + X
+Now copy paste the fallowing code (called Server-Block) and change the line <server_name example.de www.example.de;> accordingly to your domain adress: 
+Hint: After pasting save the file by pressing Ctrl + O and exit it after by pressing Ctrl + X
 
+```sh
 server {
         listen 80;
         listen [::]:80;
@@ -152,12 +168,22 @@ server {
                     proxy_pass http://localhost:5000;
   }
 }
+```
 
-//no copy the file to /etc/nginx/sites-enabled
+Now stay in the folder and copy the file you just created and edited to the /etc/nginx/sites-enabled folder by running:
+```sh
 ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf
+```
 
-//check syntax of your reverse-proxy.conf file
+You can check the syntax of your reverse-proxy.conf file by running: 
+```sh
 nginx -t
+```
+Which should be successfull. If so you have installed your NGINX-Webserver successfully. 
+
+## HTTPS-Certificate
+
+
 
 //install the certbot
 sudo snap install --classic certbot
