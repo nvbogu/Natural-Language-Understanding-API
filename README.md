@@ -40,12 +40,12 @@ In this section you will install and configure everything what is necessary to r
 
 ## Prerequisites
 
-In this section I will talk about what you should have to be able to follow this guide and install your own RASA-API server. 
+In this section I will talk about what you should have to be able to follow this guide and install your own RASA API server. 
 
 I recommend:
 
-4 CPU-Corese which are capable to execute AVX instructions for Tensorflow, 
-16 GB RAM and 20 GB of SSD for a production server. 
+4 CPU cores which are capable to execute AVX instructions for Tensorflow, 
+16 GB RAM and 20 GB of SSD storage for a production server. 
 
 Ubuntu 18.04 and Python 3.6.9 should be installed (Python 3.6.9 is installed on Ubuntu 18.04 by default).
 
@@ -73,7 +73,7 @@ pip install -U pip
 ```
 
 This guide assumes that you need to have the server be accesible over https and not only http and therefore you will need 
-your own domain name and be able to point it to the servers public ip address. In this guide you will create the server.
+your own domain name and be able to point it to the servers public ip address. In this guide you will only create the server and not buy a domain name and not link your domain name to your server.
 
 
 ## RASA
