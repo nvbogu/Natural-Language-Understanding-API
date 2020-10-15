@@ -106,7 +106,7 @@ To activate your newly created virtual environment run:
 ```sh
 source ./<your_virtual_environment_name>/bin/activate
 ```
-Keep in mind that you have to be in <your_project_name> folder to activate your venv. 
+`Hint`: Keep in mind that you have to be in <your_project_name> folder to activate your venv. 
 
 Now install the RASA package by running: 
 ```sh
@@ -123,7 +123,7 @@ After installing RASA make sure that you are in <your_project_name> folder and c
 git clone https://github.com/Ameckto/voice_assistant_ai_for_conference_systems.git
 ```
 
-The repository you just downloaded makes usage of the Spacy package which is a free open-source library for Natural Language Processing in Python.
+The repository you just downloaded makes usage of the Spacy package which is a free open source library for Natural Language Processing in Python.
 Thus you need to install it by running:
 
 ```sh
@@ -194,7 +194,7 @@ You can check the syntax of your reverse-proxy.conf file by running:
 ```sh
 nginx -t
 ```
-Which should be successfull. If so you have installed your NGINX web server successfully. 
+Which should be successfull. If so you have installed your NGINX web server successfully!
 
 ## HTTPS certificate
 I this section you will get a certificate from [Let's Encript](https://letsencrypt.org/) which is for free and makes your server accessible over the https protocol.
@@ -264,9 +264,9 @@ Start the server by running:
 ```sh
 sudo systemctl start nginx
 ```
-`Hint`: You need to open a new shell if you started your RASA-Server within the current shell to be able to do something different than watching the RASA-Server running on http:<i></i>//localhost:5000. 
+`Hint`: You need to open a new shell if you started your RASA server within the current shell to be able to do something different than watching the RASA server running on http:<i></i>//localhost:5000. 
 
-Now you can navigate to your <example.com> domain and enjoy your rasa-server running with the https protocol ready for your requests.
+Now you can navigate to your <example.com> domain and enjoy your rasa server running with the https protocol ready for your requests.
 
 You can also test it on your ubuntu machine by curling it by running: 
 
@@ -281,7 +281,7 @@ Which should return:
 
 ## How to train the model
 
-In this section you will learn how quickly you can change the training data and change the entity extractor pipeline and fit the model to your needs.
+In this section you will learn how quickly you can change the training data and change the entity extractor pipeline thus your model running on the rasa server will meet your individual needs.
 
 Activate your virtual environment and move to the repository folder (explained above).
 
@@ -292,7 +292,10 @@ rasa train nlu
 ```
 
 This creates a new model which is stored in the model folder. The data used to train the model is stored in the nlu.md file which is located in the data folder. 
-You can just change the data and re-run the above command to train your model. 
+You can just change the data and re-run the above command to train your own model. 
+Althow training the model is pretty straight forward please visit the [official rasa documentation](https://rasa.com/docs/rasa/nlu-training-data/) for more details. 
+
+
 
 You can make your API Server to use your model by altering the rasa run command:   
 
