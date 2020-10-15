@@ -1,7 +1,7 @@
 ## About The Project
 This project is about building an API for a personal voice assistant, e.g. a bot in web conferencing systems which receives a text from the client and responds with a JSON file containing pre-defined intents, entities and their confidences. 
 
-In other words if you want an API which can make sense out of the string *Hey my friend <bot_name> mute Christian* and identifies that Christian should be muted here then you are at the right address. 
+In other words if you want an API which can make sense out of the string *"Hey my friend <bot_name> mute Christian"* and identifies that Christian should be muted here then you are at the right address. 
 
 
 ## Table of Contents
@@ -299,7 +299,7 @@ The testfile is located at:
 ```sh
 voice_assistant_ai_for_conference_systems/tests/intent_entity_confidence_test.ipynb
 ```
-`Hint`: If GitHub says: *Sorry* you can view the file here: https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/tests/intent_entity_confidence_test.ipynb
+`Hint`: If GitHub says: *"Sorry"* , you can view the file here: https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/tests/intent_entity_confidence_test.ipynb
 
 The test file sends pre-defined use cases to the RASA server and evalutes the reponses. It also prints charts to find a good min_confidence value which can filter out wrong results (hopefully). 
 
