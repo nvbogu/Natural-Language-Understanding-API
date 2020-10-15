@@ -13,9 +13,9 @@ https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_sy
   * [RASA-NLU](#rasa-nlu)
   * [NGINX](#nginx)
   * [HTTPS-Certificate](#https-certificate)
-* [How to start the API](#usage)
-* [How to train the model](#train)
-* [How to test the model](#test)
+* [How to start the API](#how-to-start-the-API)
+* [How to train the model](#How-to-train-the-model)
+* [How to test the model](#How-to-test-the-model)
 * [License](#license)
 
 
