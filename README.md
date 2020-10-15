@@ -1,16 +1,16 @@
-## About The Project
+## About the project
 This project is about building an API for a personal voice assistant, e.g. a bot in web conferencing systems which receives a text from the client and responds with a JSON file containing pre-defined intents, entities and their confidences. 
 
 In other words if you want an API which can make sense out of the string *"Hey my friend <bot_name> mute Christian"* and identifies that Christian should be muted here then you are at the right address. 
 
 
-## Table of Contents
+## Table of contents
 
 * [Installation](#installation)
   * [Prerequisites](#prerequisites)
   * [RASA](#rasa)
   * [NGINX](#nginx)
-  * [HTTPS Certificate](#https-certificate)
+  * [HTTPS certificate](#https-certificate)
 * [How to start the API](#how-to-start-the-API)
 * [How to train the model](#How-to-train-the-model)
 * [How to test the model](#How-to-test-the-model)
@@ -180,7 +180,7 @@ nginx -t
 ```
 Which should be successfull. If so you have installed your NGINX web server successfully. 
 
-## HTTPS Certificate
+## HTTPS certificate
 I this section you will get a certificate from [Let's Encript](https://letsencrypt.org/) which is for free and makes your server accessible over the https protocol.
 You also alter your NGINX configuration (automatically). 
 
