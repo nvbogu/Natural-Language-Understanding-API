@@ -120,7 +120,7 @@ It should be the version Rasa 1.10.14.
 
 After installing RASA make sure that you are in <your_project_name> folder and clone the Git repository by running: 
 ```sh
-git clone https://github.com/Ameckto/voice_assistant_ai_for_conference_systems.git
+git clone https://github.com/Ameckto/Natural-Language-Understanding-API.git
 ```
 
 The repository you just downloaded makes usage of the Spacy package which is a free open source library for Natural Language Processing in Python.
@@ -241,7 +241,7 @@ source ./<your_virtual_environment_name>/bin/activate
 
 Now navigate to your repository folder by running:
 ```sh
-cd voice_assistant_ai_for_conference_systems
+cd Natural-Language-Understanding-API
 ```
 
 Start the RASA server with the bigbluebutton (which is a open source web conferencing software) model on port 5000
@@ -316,9 +316,9 @@ I used a local RASA server and Windows for this purpose. You can also use anothe
 The testfile is located at:
 
 ```sh
-voice_assistant_ai_for_conference_systems/tests/intent_entity_confidence_test.ipynb
+Natural-Language-Understanding-API/tests/intent_entity_confidence_test.ipynb
 ```
-`Hint`: If GitHub says: *"Sorry"* , you can view the file here: https://nbviewer.jupyter.org/github/Ameckto/voice_assistant_ai_for_conference_systems/blob/main/tests/intent_entity_confidence_test.ipynb
+`Hint`: If GitHub says: *"Sorry"* , you can view the file here: https://nbviewer.jupyter.org/github/Ameckto/Natural-Language-Understanding-API/blob/main/tests/intent_entity_confidence_test.ipynb
 
 The test file sends pre-defined use cases to the RASA server and evalutes the reponses. It also prints charts to find a good min_confidence value which can filter out wrong results (hopefully). 
 
