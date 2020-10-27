@@ -1,7 +1,7 @@
 ## About this project
-This project is about building an API for a personal voice assistant, e.g. a bot in web conferencing systems which receives a text from the client and responds with a JSON text containing pre-defined intents, entities and their confidences. 
+This project is about building an API for a personal assistant, e.g. a bot in web conferencing systems which receives a text from the client and responds with a JSON response containing pre-defined intents, entities and their confidences. 
 
-In other words if you want an API which can make sense out of the string *"Hey my friend <bot_name> mute Christian"* and identifies that Christian should be muted here then you are at the right address. 
+In other words if you want an API which can make sense out of the string *"Hey my friend <bot_name> mute Christian for me please"* and identifies that Christian should be muted here then you are at the right address. 
 
 The provided model is capable of identifying the following intents:
 
@@ -15,9 +15,10 @@ The provided model is capable of identifying the following intents:
 | raise_hand     | raise my hand          |                     |
 | out_of_scope   | I don't like it here   |                     |
 
-It is also capable of identifying multiple intents if one of them is a wake_up intent like wake_up+mute, wake_up+share_screen etc..
+It is also capable of identifying multiple intents if one of them is a wake_up intent like wake_up+mute, wake_up+share_screen etc.
+It it is very simple to train a model with your own data to meet your individual neets. I have described it in the [How to train the model](#How-to-train-the-model) section.
 
-Although this is a standalone project it is used by [this project](https://github.com/Ameckto/bigbluebutton) where the [bigbluebutton](https://github.com/bigbluebutton) (open source web conferencing) application is altered in order to bring a personal voice assistant to live and useable.
+Although this is a standalone project it is used by the [Personal-Voice-and-Chat-Assistant-within-bigbluebutton](https://github.com/nvbogu/Personal-Voice-and-Chat-Assistant-within-bigbluebutton) project where the [bigbluebutton](https://github.com/bigbluebutton) (open source web conferencing) application is altered in order to bring a personal voice assistant to live and useable.
 
 
 ## Table of contents
@@ -36,7 +37,7 @@ Although this is a standalone project it is used by [this project](https://githu
 ## Installation
 
 In this section you will install and configure everything what is necessary to run a web server (with an https protocol) which acts like a proxy server and points to a local RASA server. 
-[Rasa Open Source](https://rasa.com/) is a machine learning framework to automate text- and voice-based assistants.
+[Rasa Open Source](https://rasa.com/) is a machine learning framwork to automate text- and voice-based assistants.
 
 ## Prerequisites
 
@@ -120,7 +121,8 @@ It should be the version Rasa 1.10.14.
 
 After installing RASA make sure that you are in <your_project_name> folder and clone the Git repository by running: 
 ```sh
-git clone https://github.com/Ameckto/Natural-Language-Understanding-API.git
+git https://github.com/nvbogu/Natural-Language-Understanding-API.git
+
 ```
 
 The repository you just downloaded makes usage of the Spacy package which is a free open source library for Natural Language Processing in Python.
@@ -318,7 +320,8 @@ The testfile is located at:
 ```sh
 Natural-Language-Understanding-API/tests/intent_entity_confidence_test.ipynb
 ```
-`Hint`: If GitHub says: *"Sorry"* , you can view the file here: https://nbviewer.jupyter.org/github/Ameckto/Natural-Language-Understanding-API/blob/main/tests/intent_entity_confidence_test.ipynb
+
+`Hint`: If GitHub says: *"Sorry"* , you can view the file here: https://nbviewer.jupyter.org/github/nvbogu/Natural-Language-Understanding-API/blob/main/tests/intent_entity_confidence_test.ipynb
 
 The test file sends pre-defined use cases to the RASA server and evalutes the reponses. It also prints charts to find a good min_confidence value which can filter out wrong results (hopefully). 
 
